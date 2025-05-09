@@ -11,7 +11,7 @@ class StoreCityHistoryRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class StoreCityHistoryRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'content' => 'required|string|max:1000',
-            'images.*' => 'nullable|image|max:2048',
+            'content' => 'required|string',
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

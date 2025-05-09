@@ -11,7 +11,7 @@ class StoreHotelRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,9 +27,10 @@ class StoreHotelRequest extends FormRequest
             'address' => 'nullable|string',
             'phone' => 'nullable|string',
             'whatsapp' => 'nullable|string',
-            'latitude' => 'nullable|numeric',
-            'longitude' => 'nullable|numeric',
-            'images.*' => 'nullable|image|max:2048',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }

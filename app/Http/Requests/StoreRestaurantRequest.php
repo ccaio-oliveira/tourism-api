@@ -11,7 +11,7 @@ class StoreRestaurantRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,9 +27,10 @@ class StoreRestaurantRequest extends FormRequest
             'address' => 'required|string|max:255',
             'phone' => 'nullable|string|max:20',
             'whatsapp' => 'nullable|string|max:20',
-            'latitude' => 'nullable|numeric',
-            'longitude' => 'nullable|numeric',
-            'images.*' => 'nullable|image|max:2048',
+            'latitude' => 'nullable|string',
+            'longitude' => 'nullable|string',
+            'images' => 'nullable|array',
+            'images.*' => 'nullable|file|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 }
