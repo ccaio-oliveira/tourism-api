@@ -23,10 +23,12 @@ class RestaurantResource extends JsonResource
             'whatsapp' => $this->whatsapp,
             'latitude' => $this->latitude,
             'longitude' => $this->longitude,
-            'images' => $this->images->map(fn ($img) => [
-                'id' => $img->id,
-                'url' => asset('storage/' . $img->image_path),
-            ])
+            'images' => $this->images->map(function ($img) {
+                return [
+                    'id' => $img->id,
+                    'url' => asset('storage/' . $img->image_path),
+                ];
+            })
         ];
     }
 }

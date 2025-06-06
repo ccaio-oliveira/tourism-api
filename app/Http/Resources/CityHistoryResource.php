@@ -18,10 +18,12 @@ class CityHistoryResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'content' => $this->content,
-            'images' => $this->images->map(fn ($img) => [
-                'id' => $img->id,
-                'url' => asset('storage/' . $img->image_path),
-            ])
+            'images' => $this->images->map(function ($img) {
+                return [
+                    'id' => $img->id,
+                    'url' => asset('storage/' . $img->image_path),
+                ];
+            })
         ];
     }
 }

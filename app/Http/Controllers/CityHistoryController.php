@@ -48,7 +48,7 @@ class CityHistoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, CityHistory $cityHistory)
+    public function update(CityHistoryResource $request, CityHistory $cityHistory)
     {
         $city_history = $this->cityHistoryService->updateWithImages(
             $cityHistory,

@@ -49,7 +49,7 @@ class TouristAttractionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TouristAttraction $touristAttraction)
+    public function update(StoreTouristAttractionRequest $request, TouristAttraction $touristAttraction)
     {
         $tourist_attraction = $this->touristAttractionService->updateWithImages(
             $touristAttraction,
